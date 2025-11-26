@@ -30,8 +30,17 @@ public class WhileLoops {
     * countEvensUpTo(10) -> 5 // {2, 4, 6, 8, 10}
     */
    public static int countEvensUpTo(int n) {
-       // YOUR CODE HERE
-       return -1;
+        int count = 0;
+        int t = 1;
+       if (n < 1) {
+        return 0;
+       } else {
+        while (t < n) {
+            t*=2;
+            count++;
+        }
+        return count;
+       }
    }
 
 
