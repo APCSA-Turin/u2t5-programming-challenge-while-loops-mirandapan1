@@ -35,8 +35,8 @@ public class WhileLoops {
        if (n < 1) {
         return 0;
        } else {
-        while (t < n) {
-            t*=2;
+        while (n > t) {
+            t+=2;
             count++;
         }
         return count;
@@ -56,8 +56,23 @@ public class WhileLoops {
     * digitSum(199) -> 19 // 1 + 9 + 9
     */
    public static int digitSum(int n) {
-       // YOUR CODE HERE
-       return -1;
+        int x = 10;
+        int subtract = 0;
+        int total = 0;
+        if (x <= n) {
+            while (n >= x) {
+            int digit = n % x;
+                
+            total = total + ((digit - subtract)/ (x / 10));
+            subtract = digit;
+            x *= 10;
+            }
+            return (total +  ((n - subtract) / (x / 10)));
+            
+        }
+        return ((n - subtract) / (x / 10));
+
+
    }
 
 
@@ -81,9 +96,16 @@ public class WhileLoops {
     * // can't subtract without going negative
     */
    public static int countDownBy(int start, int step) {
-       // YOUR CODE HERE
-       return -1;
+       if (step <= 0) {
+        return start;
+    }
+       while (start >= 0) {
+        start -= step;
+       }
+       return start+step;
    }
+
+   
 
 
    /**
@@ -115,9 +137,17 @@ public class WhileLoops {
     */
    public static int weeksToReachGoal(int startBalance, int weeklyDeposit, int goalBalance) {
        // CODE HERE
-       return -1;
-   }
-
+       if (startBalance >= goalBalance) {
+            return 0;
+        }
+        int wk = 0;
+        while (startBalance < goalBalance) {
+            startBalance += weeklyDeposit;
+            wk++;
+        }
+       return wk;
+    }
+   
 
    /**
     * Your phone battery is at startPercent (0-100)%, and you are using it
@@ -149,8 +179,21 @@ public class WhileLoops {
     * // battery would never drain
     */
    public static int minutesUntilDead(int startPercent, int perMinuteUse) {
-       //YOUR CODE HERE
-       return -1;
+        //YOUR CODE HERE
+       int count = 0;
+        if (startPercent <= 0 || perMinuteUse <= 0) {
+            return 0;
+        } else {
+            while (startPercent > 0) {
+               startPercent = startPercent - perMinuteUse;
+                    count++;
+                }
+
+
+        }
+     
+       return count;
+
    }
 }
 
